@@ -8,6 +8,8 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -47,10 +49,22 @@ public class Sql2oHappyHourDaoTest {
         HappyHour otherHappyHour = happyHourDao.findById(happyId);
         assertEquals(happyHour, otherHappyHour);
     }
+    @Test
+    public void HappyhourRetreiveAllInstances_True(){
+        HappyHour happyHour = helper();
+        HappyHour otherHour = helper2();
+        happyHourDao.add(happyHour);
+        happyHourDao.add(otherHour);
+        List<HappyHour> show = happyHourDao.getAll();
+        assertEquals(2, show.size());
+    }
 
 
 
     public HappyHour helper(){
         return new HappyHour("4:30","6:30",5,"Henry's","Across Burnside");
+    }
+    public HappyHour helper2(){
+        return new HappyHour("3:30","6:30",4,"EastBurn","On Burnside");
     }
 }
