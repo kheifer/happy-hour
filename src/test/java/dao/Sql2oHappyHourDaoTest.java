@@ -69,6 +69,25 @@ public class Sql2oHappyHourDaoTest {
         assertTrue(daoSize > 0 && daoSize > happyHourDao.getAll().size());
     }
 
+    @Test
+    public void HappyHourUpdate_True(){
+        HappyHour happyHour = helper();
+        HappyHour happyHour2 = helper2();
+        happyHourDao.add(happyHour);
+        happyHourDao.add(happyHour2);
+        int idNum = happyHour2.getId();
+        System.out.println(idNum);
+        String expectedAddress = "epicodus";
+        happyHourDao.updateHappyHour("7", "9", 6, "Restaurant", "epicodus", idNum);
+        assertEquals(expectedAddress, happyHourDao.findById(idNum).getAddress());
+    }
+    @Test
+    public void happyHourDeleteByID_True(){
+        HappyHour happyHour = helper();
+        happyHourDao.add(happyHour);
+        happyHourDao.deleteById(happyHour.getId());
+        assertEquals(0,happyHourDao.getAll().size());
+    }
 
 
 

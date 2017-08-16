@@ -49,4 +49,31 @@ public class Sql2oHappyHourDao implements HappyHourDao {
                     .executeUpdate();
         }
     }
+
+    @Override
+    public void updateHappyHour(String startTime, String endTime, int rating, String restaurantName, String address, int id) {
+        try(Connection con = sql2o.open()){
+            con.createQuery("UPDATE happyhour SET (startTime, endTime, rating, restaurantName, address) = (:startTime, :endTime, :rating, :restaurantName, :address) WHERE id = :id")
+                    .addParameter("startTime", startTime)
+                    .addParameter("endTime",endTime)
+                    .addParameter("rating", rating)
+                    .addParameter("restaurantName", restaurantName)
+                    .addParameter("address", address)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Override
+    public void deleteById(int id) {
+        try(Connection con = sql2o.open()){
+            con.createQuery("DELETE FROM happyhour WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 }

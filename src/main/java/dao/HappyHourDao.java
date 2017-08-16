@@ -12,4 +12,6 @@ public interface HappyHourDao {
 
      void deleteAllHappyHours();
 
+     void updateHappyHour(String startTime, String endTime, int rating, String restaurantName, String address, int id);
+     void deleteById(int id);
 }
