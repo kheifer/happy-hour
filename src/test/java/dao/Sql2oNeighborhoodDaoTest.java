@@ -34,8 +34,30 @@ public class Sql2oNeighborhoodDaoTest {
         neighborhoodDao.add(neighborhood);
         assertEquals(1, neighborhood.getId());
     }
+    @Test
+    public void getAllNeighborhoods() throws Exception{
+        Neighborhood neighborhood = setNew();
+        Neighborhood neighborhood1 = setNew2();
+        neighborhoodDao.add(neighborhood);
+        neighborhoodDao.add(neighborhood1);
+        neighborhoodDao.getAll();
+        assertEquals(2, neighborhoodDao.getAll().size());
+    }
+    @Test
+    public void neighborhoodFindById_True() throws Exception{
+        Neighborhood neighborhood = setNew();
+        Neighborhood neighborhood1 = setNew2();
+        neighborhoodDao.add(neighborhood);
+        neighborhoodDao.add(neighborhood1);
+        Neighborhood test = neighborhoodDao.findById(neighborhood.getId());
+        assertEquals(neighborhood.getDescription(), test.getDescription());
+    }
+
 
     public Neighborhood setNew(){
         return new Neighborhood("Northeast","North of South, East of West");
+    }
+    public Neighborhood setNew2(){
+        return new Neighborhood("Southeast","South of North, East of West");
     }
 }

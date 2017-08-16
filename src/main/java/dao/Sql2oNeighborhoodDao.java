@@ -5,9 +5,8 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
-/**
- * Created by Guest on 8/16/17.
- */
+import java.util.List;
+
 public class Sql2oNeighborhoodDao implements NeighborhoodDao{
     private final Sql2o sql2o;
     public Sql2oNeighborhoodDao(Sql2o sql2o){
@@ -26,5 +25,22 @@ public class Sql2oNeighborhoodDao implements NeighborhoodDao{
             }catch (Sql2oException ex) {
                 System.out.println(ex); //oops we have an error!
             }
+    }
+
+    @Override
+    public List<Neighborhood> getAll() {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM neighborhood")
+                    .executeAndFetch(Neighborhood.class);
+        }
+    }
+
+    @Override
+    public Neighborhood findById(int id) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM neighborhood WHERE id =:id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Neighborhood.class);
+        }
     }
 }
