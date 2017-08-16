@@ -15,4 +15,6 @@ public interface NeighborhoodDao {
 
     Neighborhood findById(int id);
 
+    void update(String newName, String newDescription, int id);
+
 }

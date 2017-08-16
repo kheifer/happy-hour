@@ -43,4 +43,17 @@ public class Sql2oNeighborhoodDao implements NeighborhoodDao{
                     .executeAndFetchFirst(Neighborhood.class);
         }
     }
+
+    @Override
+    public void update(String newName, String newDescription, int id) {
+        try(Connection con = sql2o.open()){
+             con.createQuery("UPDATE neighborhood SET(name, description) = (:name, :description) WHERE id = :id")
+                    .addParameter("name", newName)
+                    .addParameter("description", newDescription)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }

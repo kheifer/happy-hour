@@ -52,7 +52,20 @@ public class Sql2oNeighborhoodDaoTest {
         Neighborhood test = neighborhoodDao.findById(neighborhood.getId());
         assertEquals(neighborhood.getDescription(), test.getDescription());
     }
+    @Test
+    public void neighborhoodUpdateById_True() throws Exception{
+        Neighborhood neighborhood = setNew();
+        Neighborhood neighborhood1 = setNew2();
+        neighborhoodDao.add(neighborhood);
+        neighborhoodDao.add(neighborhood1);
+        int search = neighborhood.getId();
+        neighborhoodDao.update("Norf Norf","This is a description", neighborhood.getId());
+        assertEquals("Norf Norf", neighborhoodDao.findById(search).getName());
+    }
+    @Test
+    public void neighborhoodDeleteAll_True(){
 
+    }
 
     public Neighborhood setNew(){
         return new Neighborhood("Northeast","North of South, East of West");
