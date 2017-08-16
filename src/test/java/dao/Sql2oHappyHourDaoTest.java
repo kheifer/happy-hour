@@ -35,9 +35,17 @@ public class Sql2oHappyHourDaoTest {
     @Test
     public void HappyhourSetsId_True(){
         HappyHour happyHour = helper();
-        int happyId = happyHour.getId();
         happyHourDao.add(happyHour);
+        int happyId = happyHour.getId();
         assertEquals(happyId, happyHour.getId());
+    }
+    @Test
+    public void HappyhourFindbySpecificId_True(){
+        HappyHour happyHour = helper();
+        happyHourDao.add(happyHour);
+        int happyId = happyHour.getId();
+        HappyHour otherHappyHour = happyHourDao.findById(happyId);
+        assertEquals(happyHour, otherHappyHour);
     }
 
 
