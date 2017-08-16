@@ -1,5 +1,6 @@
 package dao;
 
+import models.HappyHour;
 import models.Neighborhood;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -36,11 +37,29 @@ public class Sql2oNeighborhoodDao implements NeighborhoodDao{
     }
 
     @Override
+    public List<HappyHour> getAllHappyhourByNeighborhood(int neighborhoodId) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM happyhour WHERE neighborhoodId = :neighborhoodId")
+                    .addParameter("neighborhoodId", neighborhoodId)
+                    .executeAndFetch(HappyHour.class);
+        }
+    }
+
+    @Override
     public Neighborhood findById(int id) {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM neighborhood WHERE id =:id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Neighborhood.class);
+        }
+    }
+
+    @Override
+    public Integer findByName(String name) {
+        try(Connection con = sql2o.open()){
+            return (Integer) con.createQuery("SELECT id FROM neighborhood WHERE name = :name")
+                    .addParameter("name", name)
+                    .executeAndFetchFirst(Integer.class);
         }
     }
 
@@ -61,6 +80,15 @@ public class Sql2oNeighborhoodDao implements NeighborhoodDao{
     public void deleteAll() {
         try(Connection con = sql2o.open()){
             con.createQuery("DELETE FROM neighborhood")
+                    .executeUpdate();
+        }
+    }
+
+    @Override
+    public void deleteByID(int id) {
+        try(Connection con = sql2o.open()){
+            con.createQuery("DELETE FROM neighborhood WHERE id = :id")
+                    .addParameter("id", id)
                     .executeUpdate();
         }
     }

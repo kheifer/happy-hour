@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS happyhour(
     endTime VARCHAR,
     rating INTEGER,
     restaurantName VARCHAR,
-    address VARCHAR
+    address VARCHAR,
+    neighborhoodId INTEGER
 );
 CREATE TABLE IF NOT EXISTS neighborhood(
     id int PRIMARY KEY auto_increment,

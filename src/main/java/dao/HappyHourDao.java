@@ -4,6 +4,7 @@ import models.HappyHour;
 import java.util.List;
 
 public interface HappyHourDao {
+
      void add (HappyHour happyHour);
 
      HappyHour findById(int id);
@@ -12,7 +13,7 @@ public interface HappyHourDao {
 
      void deleteAllHappyHours();
 
-     void updateHappyHour(String startTime, String endTime, int rating, String restaurantName, String address, int id);
+     void updateHappyHour(String startTime, String endTime, int rating, String restaurantName, String address, int id, int neighborhoodId);
 
      void deleteById(int id);
 }

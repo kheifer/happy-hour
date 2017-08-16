@@ -77,8 +77,9 @@ public class Sql2oHappyHourDaoTest {
         happyHourDao.add(happyHour2);
         int idNum = happyHour2.getId();
         System.out.println(idNum);
+        int nNum = 1;
         String expectedAddress = "epicodus";
-        happyHourDao.updateHappyHour("7", "9", 6, "Restaurant", "epicodus", idNum);
+        happyHourDao.updateHappyHour("7", "9", 6, "Restaurant", "epicodus", idNum, nNum);
         assertEquals(expectedAddress, happyHourDao.findById(idNum).getAddress());
     }
     @Test
@@ -92,9 +93,9 @@ public class Sql2oHappyHourDaoTest {
 
 
     public HappyHour helper(){
-        return new HappyHour("4:30","6:30",5,"Henry's","Across Burnside");
+        return new HappyHour("4:30","6:30",5,"Henry's","Across Burnside",1);
     }
     public HappyHour helper2(){
-        return new HappyHour("3:30","6:30",4,"EastBurn","On Burnside");
+        return new HappyHour("3:30","6:30",4,"EastBurn","On Burnside",1);
     }
 }

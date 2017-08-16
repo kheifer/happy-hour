@@ -7,13 +7,15 @@ public class HappyHour {
     private String restaurantName;
     private String address;
     private int id;
+    private int neighborhoodId;
 
-    public HappyHour(String start, String end, int rating, String restaurantName, String address){
+    public HappyHour(String start, String end, int rating, String restaurantName, String address, int neighborhoodId){
         this.startTime = start;
         this.endTime = end;
         this.rating = rating;
         this.restaurantName = restaurantName;
         this.address = address;
+        this.neighborhoodId = neighborhoodId;
     }
     //Getters
     public String getStartTime() {
@@ -39,6 +41,11 @@ public class HappyHour {
     public int getId() {
         return id;
     }
+
+    public int getNeighborhoodId() {
+        return neighborhoodId;
+    }
+
     //Setters
     public void setStartTime(String startTime) {
         this.startTime = startTime;
@@ -62,6 +69,10 @@ public class HappyHour {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setNeighborhoodId(int neighborhoodId) {
+        this.neighborhoodId = neighborhoodId;
     }
 
     @Override

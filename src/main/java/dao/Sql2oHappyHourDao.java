@@ -13,7 +13,7 @@ public class Sql2oHappyHourDao implements HappyHourDao {
     }
     @Override
     public void add(HappyHour happyHour){
-        String sql = "INSERT INTO happyhour(startTime, endTime, rating, restaurantName, address) VALUES (:startTime, :endTime, :rating, :restaurantName, :address)";
+        String sql = "INSERT INTO happyhour(startTime, endTime, rating, restaurantName, address, neighborhoodId) VALUES (:startTime, :endTime, :rating, :restaurantName, :address, :neighborhoodId)";
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql) //make a new variable
                     .bind(happyHour) //map my argument onto the query so we can use information from it
@@ -51,7 +51,7 @@ public class Sql2oHappyHourDao implements HappyHourDao {
     }
 
     @Override
-    public void updateHappyHour(String startTime, String endTime, int rating, String restaurantName, String address, int id) {
+    public void updateHappyHour(String startTime, String endTime, int rating, String restaurantName, String address, int id, int neighborhoodId) {
         try(Connection con = sql2o.open()){
             con.createQuery("UPDATE happyhour SET (startTime, endTime, rating, restaurantName, address) = (:startTime, :endTime, :rating, :restaurantName, :address) WHERE id = :id")
                     .addParameter("startTime", startTime)
