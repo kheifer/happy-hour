@@ -41,4 +41,12 @@ public class Sql2oHappyHourDao implements HappyHourDao {
                     .executeAndFetch(HappyHour.class);
         }
     }
+
+    @Override
+    public void deleteAllHappyHours() {
+        try(Connection con = sql2o.open()){
+             con.createQuery("DELETE FROM happyhour")
+                    .executeUpdate();
+        }
+    }
 }

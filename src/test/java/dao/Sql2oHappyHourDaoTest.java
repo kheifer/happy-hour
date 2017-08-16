@@ -58,6 +58,17 @@ public class Sql2oHappyHourDaoTest {
         List<HappyHour> show = happyHourDao.getAll();
         assertEquals(2, show.size());
     }
+    @Test
+    public void HappyhourReturnsNoInstancesWhenEmpty_True(){
+        HappyHour happyHour = helper();
+        HappyHour otherHour = helper2();
+        happyHourDao.add(happyHour);
+        happyHourDao.add(otherHour);
+        int daoSize = happyHourDao.getAll().size();
+        happyHourDao.deleteAllHappyHours();
+        assertTrue(daoSize > 0 && daoSize > happyHourDao.getAll().size());
+    }
+
 
 
 

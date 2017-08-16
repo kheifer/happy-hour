@@ -10,4 +10,6 @@ public interface HappyHourDao {
 
      List<HappyHour> getAll();
 
+     void deleteAllHappyHours();
+
 }
