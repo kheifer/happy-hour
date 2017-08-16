@@ -56,4 +56,12 @@ public class Sql2oNeighborhoodDao implements NeighborhoodDao{
             System.out.println(ex);
         }
     }
+
+    @Override
+    public void deleteAll() {
+        try(Connection con = sql2o.open()){
+            con.createQuery("DELETE FROM neighborhood")
+                    .executeUpdate();
+        }
+    }
 }

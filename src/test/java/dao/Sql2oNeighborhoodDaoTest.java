@@ -64,6 +64,16 @@ public class Sql2oNeighborhoodDaoTest {
     }
     @Test
     public void neighborhoodDeleteAll_True(){
+        Neighborhood neighborhood = setNew();
+        Neighborhood neighborhood1 = setNew2();
+        neighborhoodDao.add(neighborhood);
+        neighborhoodDao.add(neighborhood1);
+        neighborhoodDao.deleteAll();
+        assertEquals(0, neighborhoodDao.getAll().size());
+    }
+
+    @Test
+    public void neighborhoodDeleteByID_True(){
 
     }
 

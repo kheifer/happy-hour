@@ -17,4 +17,6 @@ public interface NeighborhoodDao {
 
     void update(String newName, String newDescription, int id);
 
+    void deleteAll();
+
 }
