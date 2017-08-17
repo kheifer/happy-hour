@@ -7,11 +7,11 @@
         <form action="/neighborhood/{{editNeighborhood.id}}/edit" method="post">
             <div class ="form-group">
                 <label for="neighborhoodName">Name of Neighborhood: </label>
-                <input id="neighborhoodName" name="neighborhoodName" type="text" placeholder="{{editNeighborhood.name}}" required>
+                <input id="neighborhoodName" name="neighborhoodName" type="text" class="form-control"  placeholder="{{editNeighborhood.name}}" required>
             </div>
             <div class ="form-group">
                 <label for="eventDescription">Description: </label>
-                <input id="eventDescription" name="eventDescription" type="text" placeholder="{{editNeighborhood.description}}" required>
+                <input id="eventDescription" name="eventDescription" type="text" class="form-control"  placeholder="{{editNeighborhood.description}}" required>
             </div>
             <button type="submit" class="btn btn-success">Update Neighborhood</button>
         </form>
@@ -23,11 +23,11 @@
         <form action="/neighborhood/new" method="post">
             <div class ="form-group">
                 <label for="neighborhoodName">Name of Neighborhood: </label>
-                <input id="neighborhoodName" name="neighborhoodName" type="text" required>
+                <input id="neighborhoodName" name="neighborhoodName" class="form-control"  type="text" required>
             </div>
             <div class ="form-group">
                 <label for="eventDescription">Description: </label>
-                <input id="eventDescription" name="eventDescription" type="text" required>
+                <input id="eventDescription" name="eventDescription" class="form-control" type="text" required>
             </div>
             <button type="submit" class="btn btn-success">Add Neighborhood!</button>
         </form>
