@@ -2,11 +2,12 @@
 
     <h1>HappyHour Event List!</h1>
 
-    {{#if neighborhoods}}
-        {{#each neighborhoods}}
-            <li>
+    {{#if happyhours}}
+        {{#each happyhours}}
+            <li><a href="/happyhours/{{id}}">{{restaurantName}}</a></li>
             {{/each}}
+        {{else}}
+        <p>No Happy Hours to display!</p>
      {{/if}}
 {{/partial}}
-
 {{> layout.hbs}}

@@ -1,0 +1,19 @@
+{{#partial "content"}}
+    {{#if happyhour}}
+        <div class="well">
+            <h3>Details About {{happyhour.restaurantName}}: </h3>
+            <ul>
+                <li>{{happyhour.address}}</li>
+                <li>{{happyhour.startTime}}</li>
+                <li>{{happyhour.endTime}}</li>
+                <li>{{happyhour.rating}} Stars!</li>
+            </ul>
+            <a class="btn btn-info" href="/happyhours/{{happyhour.id}}/edit">edit</a>
+            <a class="btn btn-info" href="/happyhours/{{happyhour.id}}/delete">delete</a>
+
+        </div>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}

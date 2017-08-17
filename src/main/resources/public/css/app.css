@@ -1,0 +1,13 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
+body{
+/*  background-image: url(images/background.jpg);*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family:'Quattrocento Sans', sans-serif;
+}
+h1{
+  font-family: 'Oswald', sans-serif;
+}

@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    {{#if happyhours}}
+        {{#each happyhours}}
+        <div class="well">
+            <h3>Details About {{restaurantName}}: </h3>
+            <ul>
+                <li>{{address}}</li>
+                <li>{{startTime}}</li>
+                <li>{{endTime}}</li>
+                <li>{{rating}} Stars!</li>
+            </ul>
+        </div>
+         {{/each}}
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}
