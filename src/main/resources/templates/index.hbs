@@ -4,10 +4,17 @@
 
     {{#if happyhours}}
         {{#each happyhours}}
-            <li><a href="/happyhours/{{id}}">{{restaurantName}}</a></li>
+            <li><a href="/neighborhoods/{{neighborhoodId}}/happyhours/{{id}}">{{restaurantName}}</a></li>
             {{/each}}
         {{else}}
         <p>No Happy Hours to display!</p>
      {{/if}}
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted"><a href="/happyhours/delete">Delete All Happy Hours!</a></p>
+        </div>
+    </footer>
 {{/partial}}
+
 {{> layout.hbs}}
