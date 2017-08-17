@@ -4,7 +4,7 @@
 
     <div class="well">
         <h1>Edit Neighborhood</h1>
-        <form action="/neighborhood/{{editNeighborhood.id}}/edit" method="post">
+        <form action="/neighborhoods/{{editNeighborhood.id}}/edit" method="post">
             <div class ="form-group">
                 <label for="neighborhoodName">Name of Neighborhood: </label>
                 <input id="neighborhoodName" name="neighborhoodName" type="text" class="form-control"  placeholder="{{editNeighborhood.name}}" required>
@@ -20,7 +20,7 @@
 {{else}}
     <div class="well">
         <h1>Add a new Neighborhood</h1>
-        <form action="/neighborhood/new" method="post">
+        <form action="/neighborhoods/new" method="post">
             <div class ="form-group">
                 <label for="neighborhoodName">Name of Neighborhood: </label>
                 <input id="neighborhoodName" name="neighborhoodName" class="form-control"  type="text" required>

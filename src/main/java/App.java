@@ -111,6 +111,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             HappyHour happyHour = happyHourDao.findById(Integer.parseInt(request.params("happyHourId")));
             model.put("happyhour", happyHour);
+            List<Neighborhood> neighborhoods = neighborhoodDao.getAll();
+            model.put("neighborhoods", neighborhoods);
             return new ModelAndView(model, "happyhour-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -153,7 +155,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //get: delete all happy hours
-        get("/neighborhoods/:neighborhoodId/happyhours/delete", (request, response) -> {
+        get("/happyhours/delete", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             happyHourDao.deleteAllHappyHours();
             List<Neighborhood> neighborhoods = neighborhoodDao.getAll();
